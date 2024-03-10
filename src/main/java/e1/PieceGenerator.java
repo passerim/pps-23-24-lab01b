@@ -1,7 +1,10 @@
 package e1;
 
-public interface PieceGenerator {
-    Pair<Integer, Integer> getPawn();
+import e1.pieces.Knight;
+import e1.pieces.Pawn;
 
-    Pair<Integer, Integer> getKnight();
+public interface PieceGenerator {
+    Pawn getPawn();
+
+    Knight getKnight();
 }

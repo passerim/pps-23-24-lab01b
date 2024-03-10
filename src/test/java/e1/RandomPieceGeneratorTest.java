@@ -1,5 +1,7 @@
 package e1;
 
+import e1.pieces.Knight;
+import e1.pieces.Pawn;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -13,19 +15,19 @@ public class RandomPieceGeneratorTest extends PieceGeneratorTest {
 
     @Test
     void testCreatePawn() {
-        final Pair<Integer, Integer> pawn = pieceGenerator.getPawn();
-        final int x = pawn.getX();
-        final int y = pawn.getY();
+        final Pawn pawn = pieceGenerator.getPawn();
+        final int x = pawn.getPosition().getX();
+        final int y = pawn.getPosition().getY();
         assertFalse(x < 0 || y < 0 || x >= SIZE || y >= SIZE);
     }
 
     @Test
     void testCreateKnight() {
-        final Pair<Integer, Integer> pawn = pieceGenerator.getPawn();
-        final Pair<Integer, Integer> knight = pieceGenerator.getKnight();
-        final int x = knight.getX();
-        final int y = knight.getY();
+        final Pawn pawn = pieceGenerator.getPawn();
+        final Knight knight = pieceGenerator.getKnight();
+        final int x = knight.getPosition().getX();
+        final int y = knight.getPosition().getY();
         assertFalse(x < 0 || y < 0 || x >= SIZE || y >= SIZE);
-        assertNotEquals(knight, pawn);
+        assertNotEquals(knight.getPosition(), pawn.getPosition());
     }
 }
