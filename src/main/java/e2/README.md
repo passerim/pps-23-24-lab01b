@@ -1,7 +1,9 @@
 ## Exercise 2 Description
 
 The goal of this exercise is to create a GUI with the appearance shown in following image:
+
 ![f1](https://user-images.githubusercontent.com/23448811/222984113-3ff8708f-1478-447b-9d79-f35b6ce6bc2c.png)
+
 Particularly, it implements a clone of the game Minesweeper -- see [https://minesweeper.online/en/](https://minesweeper.online/en/) for a recap of the game.
 
 You should implement the game, as follows:
