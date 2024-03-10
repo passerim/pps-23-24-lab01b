@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class RandomPieceGeneratorTest extends PieceGeneratorTest {
+
     @Override
     PieceGenerator createPieceGenerator(int size) {
         return new RandomPieceGenerator(size);

@@ -17,16 +17,25 @@ public class LogicsImpl implements Logics {
     }
 
     public LogicsImpl(int size, Pair<Integer, Integer> pawnPosition, Pair<Integer, Integer> knightPosition) {
+        if (size <= 0) {
+            throw new IllegalArgumentException("Grid size should be greater than zero!");
+        }
         this.size = size;
         this.pawn = new Pawn(pawnPosition);
         this.knight = new Knight(knightPosition);
+        checkBounds(pawnPosition.getX(), pawnPosition.getY());
+        checkBounds(knightPosition.getX(), knightPosition.getY());
+    }
+
+    private void checkBounds(int row, int col) {
+        if (row < 0 || col < 0 || row >= size || col >= size) {
+            throw new IndexOutOfBoundsException();
+        }
     }
 
     @Override
     public boolean hit(int row, int col) {
-        if (row < 0 || col < 0 || row >= this.size || col >= this.size) {
-            throw new IndexOutOfBoundsException();
-        }
+        checkBounds(row, col);
         return knight.move(row, col) && knight.isIn(pawn.getPosition().getX(), pawn.getPosition().getY());
     }
 

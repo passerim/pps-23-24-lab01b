@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LogicTest {
 
-    private final int SIZE = 3;
+    private final int SIZE = 5;
 
     @Test
     public void testRandomEmptyPosition() {

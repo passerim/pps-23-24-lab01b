@@ -1,0 +1,57 @@
+@startuml
+class Main {
+    +main()
+}
+
+class GUI {
+}
+
+interface Logics {
+    +hit()
+    +hasKnight()
+    +hasPawn()
+}
+
+class LogicsImpl {
+}
+
+
+interface PieceGenerator {
+    +getPawn()
+    +getKnight()
+}
+
+class RandomPieceGenerator {
+}
+
+package pieces {
+
+    interface Piece {
+        +getPosition()
+        +isIn()
+        +move()
+    }
+
+    abstract class AbstractPiece {
+    }
+
+    class Pawn {
+    }
+
+    class Knight {
+    }
+
+}
+
+
+Main --> GUI
+GUI -r-> Logics
+LogicsImpl ..l..|> Logics
+LogicsImpl --> RandomPieceGenerator
+LogicsImpl *-- Pawn
+LogicsImpl *-- Knight
+RandomPieceGenerator ..|> PieceGenerator
+AbstractPiece ..|> Piece
+Pawn --|> AbstractPiece
+Knight --|> AbstractPiece
+@enduml

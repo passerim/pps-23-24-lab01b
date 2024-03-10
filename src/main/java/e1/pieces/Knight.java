@@ -3,6 +3,7 @@ package e1.pieces;
 import e1.Pair;
 
 public class Knight extends AbstractPiece {
+
     public Knight(Pair<Integer, Integer> startingPosition) {
         super(startingPosition);
     }
