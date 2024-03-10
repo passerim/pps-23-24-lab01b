@@ -1,30 +1,22 @@
 package e1;
 
-import java.util.Random;
-
 public class LogicsImpl implements Logics {
 
     private final Pair<Integer, Integer> pawn;
-    private final Random random = new Random();
     private final int size;
     private Pair<Integer, Integer> knight;
 
     public LogicsImpl(int size) {
+        final PieceGenerator pieceGenerator = new RandomPieceGenerator(size);
         this.size = size;
-        this.pawn = this.randomEmptyPosition();
-        this.knight = this.randomEmptyPosition();
+        this.pawn = pieceGenerator.getPawn();
+        this.knight = pieceGenerator.getKnight();
     }
 
     public LogicsImpl(int size, Pair<Integer, Integer> pawnPosition, Pair<Integer, Integer> knightPosition) {
         this.size = size;
         this.pawn = pawnPosition;
         this.knight = knightPosition;
-    }
-
-    private Pair<Integer, Integer> randomEmptyPosition() {
-        Pair<Integer, Integer> pos = new Pair<>(this.random.nextInt(size), this.random.nextInt(size));
-        // the recursive call below prevents clash with an existing pawn
-        return this.pawn != null && this.pawn.equals(pos) ? randomEmptyPosition() : pos;
     }
 
     @Override
