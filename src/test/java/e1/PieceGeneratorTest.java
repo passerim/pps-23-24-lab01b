@@ -23,6 +23,11 @@ abstract class PieceGeneratorTest {
     }
 
     @Test
+    void testTooSmallSizeGrid() {
+        assertThrows(IllegalArgumentException.class, () -> createPieceGenerator(1));
+    }
+
+    @Test
     abstract void testCreatePawn();
 
     @Test

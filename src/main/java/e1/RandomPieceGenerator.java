@@ -13,8 +13,8 @@ public class RandomPieceGenerator implements PieceGenerator {
     private final Knight knight;
 
     public RandomPieceGenerator(int size) {
-        if (size <= 0) {
-            throw new IllegalArgumentException("Grid size should be greater than zero!");
+        if (size < 2) {
+            throw new IllegalArgumentException("Grid size should be greater than one!");
         }
         this.size = size;
         this.pawn = new Pawn(randomEmptyPosition());

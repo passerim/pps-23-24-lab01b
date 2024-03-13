@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LogicTest {
+public class LogicsTest {
 
     private final int SIZE = 5;
 
