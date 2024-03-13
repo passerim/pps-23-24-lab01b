@@ -1,5 +1,6 @@
 package e2;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -62,26 +63,11 @@ public class LogicsTest {
     }
 
     @Test
-    void testThereIsCounter() {
-        Logics logics = new LogicsImpl(SIZE, 0);
-        Pair<Integer, Integer> position = new Pair<>(0, 0);
-        logics.aMineWasFound(position);
-        assertTrue(logics.isThereCounter(position));
-    }
-
-    @Test
-    void testThereIsNotCounterOnCellCreation() {
-        Logics logics = new LogicsImpl(SIZE, 0);
-        Pair<Integer, Integer> position = new Pair<>(0, 0);
-        assertFalse(logics.isThereCounter(position));
-    }
-
-    @Test
     void testGetCounter() {
         Logics logics = new LogicsImpl(SIZE, 0);
         Pair<Integer, Integer> position = new Pair<>(0, 0);
         logics.aMineWasFound(position);
-        assertEquals(0, logics.getCounter(position));
+        assertEquals(0, logics.getCounter(position).or(Assertions::fail).get());
     }
 
     @Test

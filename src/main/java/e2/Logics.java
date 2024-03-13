@@ -1,12 +1,12 @@
 package e2;
 
+import java.util.Optional;
+
 public interface Logics {
 
     boolean aMineWasFound(Pair<Integer, Integer> position);
 
-    int getCounter(Pair<Integer, Integer> position);
-
-    boolean isThereCounter(Pair<Integer, Integer> position);
+    Optional<Integer> getCounter(Pair<Integer, Integer> position);
 
     boolean isThereFlag(Pair<Integer, Integer> position);
 

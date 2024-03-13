@@ -1,10 +1,12 @@
 package e2;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -60,7 +62,14 @@ public class CellTest {
     @Test
     void testGetCounter() {
         cellSiblings.forEach(cell::addSibling);
-        assertEquals(numberOfAdjacentMines, cell.getCounter());
+        cell.sweep();
+        assertEquals(numberOfAdjacentMines, cell.getCounter().or(Assertions::fail).get());
+    }
+
+    @Test
+    void testEmptyCounter() {
+        cellSiblings.forEach(cell::addSibling);
+        assertTrue(cell.getCounter().isEmpty());
     }
 
     @Test

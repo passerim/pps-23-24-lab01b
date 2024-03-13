@@ -2,6 +2,7 @@ package e2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Cell {
 
@@ -21,8 +22,8 @@ public class Cell {
         }
     }
 
-    public int getCounter() {
-        return (int) siblings.stream().filter(Cell::hasMine).count();
+    public Optional<Integer> getCounter() {
+        return isSwept() ? Optional.of((int) siblings.stream().filter(Cell::hasMine).count()) : Optional.empty();
     }
 
     public Pair<Integer, Integer> getPosition() {
